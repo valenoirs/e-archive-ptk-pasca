@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row justify-content-center py-5">
+    <div class="col-8 text-start">
+      <h4 class="text-success mb-5 display-6 text-center">Terakhir Upload</h4>
+      <br />
+      <% if (surats.length < 1) { %>
+      <h1 class="text-center text-success display-6">-</h1>
+      <% } %>
+      <!--  -->
+      <% surats.forEach(surat => { %>
+      <div class="mb-5 text-center">
+        <a class="text-decoration-none" href="/surat/detail/<%= surat.id %>">
+          <h5 class="text-muted"><%= surat.title %></h5>
+        </a>
+        <p class="text-dark"><%= surat.author %></p>
+        <p>
+          <%= surat.createdAt.toLocaleDateString('id', { day: 'numeric', month:
+          'long', year: 'numeric'}) %>
+        </p>
+        <hr />
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
