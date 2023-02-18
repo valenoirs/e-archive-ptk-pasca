@@ -1,5 +1,5 @@
-# Repository Skripsi Informatika
-**Repository Skripsi Informatika**
+# E-Archive
+**E-Archive PPK Pasca UNIMA**
 
 ---
 
