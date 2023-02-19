@@ -8,7 +8,7 @@
           <div class="input-group">
             
             <select class="form-select mb-3" name="category" id="search" required
-            style="border-color: rgb(255, 193, 7)">
+            style="border-color: rgb(25, 135, 84)">
               <option value="Surat Masuk"
               <% if (category && category === 'Surat Masuk') { %>
                selected
@@ -21,7 +21,7 @@
                >Surat Keluar</option>
             </select>
             <select class="form-select mb-3" name="column" id="search" required
-            style="border-color: rgb(255, 193, 7)">
+            style="border-color: rgb(25, 135, 84)">
               <option value="name"
               <% if (column && column === 'name') { %>
                selected
@@ -47,7 +47,7 @@
           <div class="input-group">
             <input
               class="form-control"
-              style="border-color: rgb(255, 193, 7)"
+              style="border-color: rgb(25, 135, 84)"
               type="search"
               name="query"
               value="<%= query %>"
@@ -56,8 +56,8 @@
               autocomplete="off"
             />
             <button
-              class="btn btn-warning"
-              style="border-color: rgb(255, 193, 7)"
+              class="btn btn-success"
+              style="border-color: rgb(25, 135, 84)"
               type="submit"
             >
               <i class="bi bi-search"></i> Cari
@@ -72,7 +72,7 @@
     <div class="row justify-content-center">
       <div class="col-8 text-start">
         <% if (surats.length < 1) { %>
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Surat</strong> tidak ditemukan.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
