@@ -70,7 +70,7 @@
   
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-8 text-start">
+      <div class="col-10 text-start">
         <% if (surats.length < 1) { %>
           <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Surat</strong> tidak ditemukan.
@@ -81,12 +81,17 @@
         <div style="overflow: auto;height: 440px;">
 
         
-        <table class="table">
+        <table class="table table-striped">
           <thead>
-            <tr class="text-center">
+            <tr class="text-center table-dark">
               <th scope="col" width="35px">No</th>
               <th scope="col">Nama Surat</th>
               <th scope="col">Nomor Surat</th>
+              <% if (category === "Surat Masuk") { %>
+                <th scope="col">Asal Surat</th>
+              <% } else { %>
+                <th scope="col">Tujuan Surat</th>
+              <% } %>
               <th scope="col">Tanggal Surat</th>
               <th scope="col">Perihal</th>
               <th scope="col" width="125px">Action</th>
@@ -98,6 +103,11 @@
                 <th scope="row" class="text-center"><%= index + 1 %></th>
                 <td><%= surat.name %></td>
                 <td><%= surat.no %></td>
+                <% if (surat.category === "Surat Masuk") { %>
+                  <td><%= surat.asal %></td>
+                <% } else { %>
+                  <td><%= surat.tujuan %></td>
+                <% } %>
                 <td><%= surat.date %></td>
                 <td><%= surat.about %></td>
                 <td>

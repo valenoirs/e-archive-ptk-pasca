@@ -35,6 +35,17 @@
               <textarea class="form-control" name="about" id="about" placeholder=" " required style="height: 125px; resize: none;"><%= surat.about %></textarea>
               <label for="about">Perihal</label>
             </div>
+            <% if (surat.category === "Surat Masuk") { %>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="asal" name="asal" placeholder=" " required value="<%= surat.asal %>">
+                <label for="asal" class="form-label">Asal Surat</label>
+              </div>
+            <% } else { %>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="tujuan" name="tujuan" placeholder=" " required value="<%= surat.tujuan %>">
+                <label for="tujuan" class="form-label">Tujuan Surat</label>
+              </div>
+            <% } %>
 
               <input type="hidden" name="id" value="<%= surat.id %>">
           </div>

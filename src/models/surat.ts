@@ -9,6 +9,8 @@ const SuratSchema: Schema = new Schema<ISurat>(
     about: { type: String, required: true },
     category: { type: String, required: true },
     uri: { type: String, required: true },
+    tujuan: {type:String, required: true, default: "-"},
+    asal: {type:String, required: true, default: "-"},
   },
   {
     timestamps: true,
