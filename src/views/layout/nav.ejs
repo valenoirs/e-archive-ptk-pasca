@@ -1,10 +1,14 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand p-3 mt-2" href="/"
-      ><h5>
+      ><h4>
         <img src="./assets/unima.webp" alt="" width="42px" />
-        <span class="fw-lights text-dark">E-Arsip</span>
-      </h5></a
+        <span
+          class="fw-lights text-dark"
+          style="font-family: 'Times New Roman', Times, serif"
+          >E-Arsip</span
+        >
+      </h4></a
     >
     <% if (locals.user) { %>
     <button
@@ -32,10 +36,22 @@
           </a>
           <ul class="dropdown-menu">
             <li>
+              <a class="dropdown-item text-secondary" href="/"
+                ><i class="bi bi-house-door-fill"></i> Beranda</a
+              >
+            </li>
+            <li>
               <a
                 class="dropdown-item text-secondary"
                 href="/surat?category=Surat%20Masuk&column=name&query="
-                ><i class="bi bi-search"></i> Cari Surat</a
+                ><i class="bi bi-mailbox2"></i> Surat Masuk</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-secondary"
+                href="/surat?category=Surat%20Keluar&column=name&query="
+                ><i class="bi bi-envelope-paper-fill"></i> Surat Keluar</a
               >
             </li>
             <li><hr class="dropdown-divider" /></li>
@@ -53,7 +69,7 @@
                 type="button"
                 data-bs-toggle="modal"
                 data-bs-target="#upload"
-                ><i class="bi bi-file-earmark-plus"></i> Upload Surat</a
+                ><i class="bi bi-envelope-plus-fill"></i> Upload Surat</a
               >
             </li>
           </ul>
@@ -70,7 +86,7 @@
             aria-expanded="false"
             data-bs-auto-close="outside"
             style="text-decoration: none"
-            ><i class="bi bi-person-circle"></i> <%= locals.user.name %></a
+            ><i class="bi bi-person-badge-fill"></i> <%= locals.user.name %></a
           >
           <div
             class="dropdown-menu dropdown-menu-lg-end p-4"

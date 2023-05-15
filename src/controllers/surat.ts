@@ -91,7 +91,6 @@ export const edit = async (req: Request, res: Response) => {
       'Terjadi kesalahan saat mengubah skripsi, coba lagi.'
     )
     console.error('[SERVER]: Surat edit error.', error)
-    return res.redirect('/')
   }
 }
 
