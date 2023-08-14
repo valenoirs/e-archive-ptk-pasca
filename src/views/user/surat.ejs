@@ -25,11 +25,11 @@
           </select>
           <select class="form-select mb-3" name="column" id="search" required
           style="border-color: rgb(25, 135, 84)">
-            <option value="name"
-            <% if (column && column === 'name') { %>
+          <option value="about"
+            <% if (column && column === 'about') { %>
               selected
-            <% } %>
-            >Nama Surat</option>
+              <% } %>
+              >Perihal</option>
             <option value="no"
             <% if (column && column === 'no') { %>
               selected
@@ -40,12 +40,7 @@
               selected
               <% } %>
               >Tanggal Surat</option>
-            <option value="about"
-            <% if (column && column === 'about') { %>
-              selected
-              <% } %>
-              >Perihal</option>
-          </select>
+            </select>
         </div>
         <div class="input-group">
           <input
@@ -85,7 +80,7 @@
         <thead>
           <tr class="table-dark">
             <th scope="col" width="35px" class="text-center">No</th>
-            <th scope="col">Nama Surat</th>
+            <th scope="col">Perihal</th>
             <th scope="col">Nomor Surat</th>
             <% if (category === "Surat Masuk") { %>
               <th scope="col">Asal Surat</th>
@@ -93,7 +88,6 @@
               <th scope="col">Tujuan Surat</th>
             <% } %>
             <th scope="col">Tanggal Surat</th>
-            <th scope="col">Perihal</th>
             <th scope="col" width="125px" class="text-center">Action</th>
           </tr>
         </thead>
@@ -101,7 +95,7 @@
           <% surats.forEach((surat, index) => { %>
             <tr>
               <th scope="row" class="text-center"><%= index + 1 %></th>
-              <td><%= surat.name %></td>
+              <td><%= surat.about %></td>
               <td><%= surat.no %></td>
               <% if (surat.category === "Surat Masuk") { %>
                 <td><%= surat.asal %></td>
@@ -109,7 +103,6 @@
                 <td><%= surat.tujuan %></td>
               <% } %>
               <td><%= surat.date %></td>
-              <td><%= surat.about %></td>
               <td>
                 <a
                   class="text-decoration-none text-success text-center"

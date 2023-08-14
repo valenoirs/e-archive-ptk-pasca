@@ -20,8 +20,8 @@
         <div class="modal-body">
           <form method="post" action="/surat?_method=put">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="name" name="name" placeholder=" " required value="<%= surat.name %>">
-              <label for="name" class="form-label">Nama Surat</label>
+              <textarea class="form-control" name="about" id="about" placeholder=" " required style="height: 125px; resize: none;"><%= surat.about %></textarea>
+              <label for="about">Perihal</label>
             </div>
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="no" name="no" placeholder=" " required value="<%= surat.no %>">
@@ -30,10 +30,6 @@
             <div class="form-floating mb-3">
               <input type="date" class="form-control" id="date" name="date" placeholder=" " required value="<%= surat.date %>">
               <label for="date" class="form-label">Tanggal Surat</label>
-            </div>
-            <div class="form-floating mb-3">
-              <textarea class="form-control" name="about" id="about" placeholder=" " required style="height: 125px; resize: none;"><%= surat.about %></textarea>
-              <label for="about">Perihal</label>
             </div>
             <% if (surat.category === "Surat Masuk") { %>
               <div class="form-floating mb-3">

@@ -19,8 +19,8 @@
       <div class="modal-body">
         <form method="post" action="/surat" enctype="multipart/form-data">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="name" name="name" placeholder=" " required>
-              <label for="name" class="form-label">Nama Surat</label>
+              <textarea class="form-control" name="about" id="about" placeholder=" " required style="height: 125px; resize: none;"></textarea>
+              <label for="about">Perihal</label>
             </div>
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="no" name="no" placeholder=" " required>
@@ -29,10 +29,6 @@
             <div class="form-floating mb-3">
               <input type="date" class="form-control" id="date" name="date" placeholder=" " required>
               <label for="date" class="form-label">Tanggal Surat</label>
-            </div>
-            <div class="form-floating mb-3">
-              <textarea class="form-control" name="about" id="about" placeholder=" " required style="height: 125px; resize: none;"></textarea>
-              <label for="about">Perihal</label>
             </div>
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="misc" name="misc" placeholder=" " required>

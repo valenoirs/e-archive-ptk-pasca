@@ -1,6 +1,5 @@
 export interface ISurat {
   id?: string
-  name: string
   no: string
   date: string
   about: string

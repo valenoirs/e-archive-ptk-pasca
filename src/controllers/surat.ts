@@ -4,7 +4,7 @@ import { classify } from '../utils/classifier'
 
 export const upload = async (req: Request, res: Response) => {
   try {
-    const { name, misc } = req.body
+    const { about, misc } = req.body
 
     if (!req.file) {
       req.flash('notification', 'Format file yang di upload tidak sesuai.')
@@ -12,7 +12,7 @@ export const upload = async (req: Request, res: Response) => {
       return res.redirect('/')
     }
 
-    const category = classify(name)
+    const category = classify(about)
 
     console.log(category)
 
