@@ -24,7 +24,7 @@
               <label for="about">Perihal</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="no" name="no" placeholder=" " required value="<%= surat.no %>">
+              <input type="text" class="form-control" id="no" name="no" placeholder=" " required value="<%= surat.no %>" autocomplete="off">
               <label for="no" class="form-label">Nomor Surat</label>
             </div>
             <div class="form-floating mb-3">
@@ -33,12 +33,12 @@
             </div>
             <% if (surat.category === "Surat Masuk") { %>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="asal" name="asal" placeholder=" " required value="<%= surat.asal %>">
+                <input type="text" class="form-control" id="asal" name="asal" placeholder=" " required value="<%= surat.asal %>" autocomplete="off">
                 <label for="asal" class="form-label">Asal Surat</label>
               </div>
             <% } else { %>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="tujuan" name="tujuan" placeholder=" " required value="<%= surat.tujuan %>">
+                <input type="text" class="form-control" id="tujuan" name="tujuan" placeholder=" " required value="<%= surat.tujuan %>" autocomplete="off">
                 <label for="tujuan" class="form-label">Tujuan Surat</label>
               </div>
             <% } %>
