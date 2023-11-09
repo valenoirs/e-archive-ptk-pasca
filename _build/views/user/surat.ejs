@@ -1,0 +1,144 @@
+  <div class="container-fluid mb-3 p-5 text-muted">
+    <div class="row mb-5">
+      <div class="col-6 text-light">
+        <% if (category && category === "Surat Masuk") { %>
+          <h3 class="text-dark"><i class="bi bi-mailbox2 fs-5"></i> Surat Masuk</h3>
+        <% } else { %>
+          <h3 class="text-dark"><i class="bi bi-envelope-paper-fill fs-5"></i> Surat Keluar</h3>
+        <% } %>
+        <br>
+        <form role="search" method="post" action="/surat/cari">
+          <div class="input-group">
+            
+            <select class="form-select mb-3" name="category" id="search" required
+            style="border-color: rgb(25, 135, 84)">
+              <option value="Surat Masuk"
+              <% if (category && category === 'Surat Masuk') { %>
+               selected
+            <% } %>
+            >Surat Masuk</option>
+            <option value="Surat Keluar"
+            <% if (category && category === 'Surat Keluar') { %>
+              selected
+              <% } %>
+              >Surat Keluar</option>
+          </select>
+          <select class="form-select mb-3" name="column" id="search" required
+          style="border-color: rgb(25, 135, 84)">
+          <option value="about"
+            <% if (column && column === 'about') { %>
+              selected
+              <% } %>
+              >Perihal</option>
+            <option value="no"
+            <% if (column && column === 'no') { %>
+              selected
+              <% } %>
+              >Nomor Surat</option>
+            <option value="date"
+            <% if (column && column === 'date') { %>
+              selected
+              <% } %>
+              >Tanggal Surat</option>
+            </select>
+        </div>
+        <div class="input-group">
+          <input
+            class="form-control"
+            style="border-color: rgb(25, 135, 84)"
+            type="search"
+            name="query"
+            value="<%= query %>"
+            placeholder="Cari"
+            aria-label="Search"
+            autocomplete="off"
+          />
+          <button
+            class="btn btn-success"
+            style="border-color: rgb(25, 135, 84)"
+            type="submit"
+          >
+            <i class="bi bi-search"></i> Cari
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-start">
+      <% if (surats.length < 1) { %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Surat</strong> tidak ditemukan.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% } %>
+      <!-- <h4 class="text-dark mb-5 display-6">Hasil Pencarian :</h4> -->
+      <div style="overflow: auto;height: 350px;">
+
+      
+      <table class="table table-striped">
+        <thead>
+          <tr class="table-dark">
+            <th scope="col" width="35px" class="text-center">No</th>
+            <th scope="col">Perihal</th>
+            <th scope="col" width="250px">Nomor Surat</th>
+            <% if (category === "Surat Masuk") { %>
+              <th scope="col" width="150px">Asal Surat</th>
+            <% } else { %>
+              <th scope="col" width="150px">Tujuan Surat</th>
+            <% } %>
+            <th scope="col" width="150px">Tanggal Surat</th>
+            <th scope="col" width="125px" class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% surats.forEach((surat, index) => { %>
+            <tr>
+              <th scope="row" class="text-center"><%= index + 1 %></th>
+              <td><%= surat.about %></td>
+              <td><%= surat.no %></td>
+              <% if (surat.category === "Surat Masuk") { %>
+                <td><%= surat.asal %></td>
+              <% } else { %>
+                <td><%= surat.tujuan %></td>
+              <% } %>
+              <td><%= surat.date %></td>
+              <td>
+                <a
+                  class="text-decoration-none text-success text-center"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#edit<%= surat.id %>"
+                >
+                  <i class="bi bi-pen"></i>
+                </a>
+                &ensp;|&ensp;
+                <a
+                  class="text-decoration-none text-danger text-center"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#delete<%= surat.id %>"
+                >
+                  <i class="bi bi-trash"></i>
+                </a>
+                &ensp;|&ensp;
+                <a
+                  class="text-decoration-none text-primary text-center"
+                  href="<%= surat.uri %>"
+                >
+                <i class="bi bi-cloud-download"></i>
+                </a> 
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+<%- include('./component/modal/delete') %>
+<!--  -->
+<%- include('./component/modal/edit') %>

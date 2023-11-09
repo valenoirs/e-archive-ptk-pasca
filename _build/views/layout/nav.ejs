@@ -1,0 +1,140 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand p-3 mt-2" href="/"
+      ><h4>
+        <img src="./assets/unima.webp" alt="" width="42px" />
+        <span
+          class="fw-lights text-dark"
+          style="font-family: 'Times New Roman', Times, serif"
+          >E-Arsip</span
+        >
+      </h4></a
+    >
+    <% if (locals.user) { %>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-list"></i> Menu
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item text-secondary" href="/"
+                ><i class="bi bi-house-door-fill"></i> Beranda</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-secondary"
+                href="/surat?category=Surat%20Masuk&column=name&query="
+                ><i class="bi bi-mailbox2"></i> Surat Masuk</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-secondary"
+                href="/surat?category=Surat%20Keluar&column=name&query="
+                ><i class="bi bi-envelope-paper-fill"></i> Surat Keluar</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <!-- <li>
+              <a
+                class="dropdown-item text-secondary"
+                href="/surat?category=Surat%20Keluar&column=name&query="
+                ><i class="bi bi-file-earmark-arrow-up"></i> Surat Keluar</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li> -->
+            <li>
+              <a
+                class="dropdown-item text-secondary"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#upload"
+                ><i class="bi bi-envelope-plus-fill"></i> Upload Surat</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <div class="dropdown align-self-center">
+          <a
+            class="text-success me-4"
+            href="#"
+            id="navbarDarkDropdownMenuLink"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            data-bs-auto-close="outside"
+            style="text-decoration: none"
+            ><i class="bi bi-person-badge-fill"></i> <%= locals.user.name %></a
+          >
+          <div
+            class="dropdown-menu dropdown-menu-lg-end p-4"
+            style="width: 275px"
+          >
+            <p>
+              <%= locals.user.name %>
+              <br />
+              <span class="text-secondary" style="font-size: 0.9rem">
+                <%= locals.user.email %>
+              </span>
+            </p>
+            <hr />
+            <a
+              class="text-success me-4"
+              href="/password"
+              style="text-decoration: none"
+            >
+              <i class="bi bi-pencil-square"></i> Edit Password</a
+            >
+            <br />
+            <a
+              class="text-danger me-4"
+              href="/user/signout"
+              style="text-decoration: none"
+            >
+              <i class="bi bi-box-arrow-left"></i> Logout</a
+            >
+          </div>
+        </div>
+
+        <!-- <form class="d-flex" role="search" action="/surat/cari" method="post">
+          <input
+            class="form-control me-2"
+            style="border-color: rgb(255, 193, 7)"
+            type="search"
+            name="query"
+            placeholder="Kata Kunci"
+            aria-label="Search"
+            autocomplete="off"
+          />
+          <input type="hidden" name="category" value="Surat Masuk" />
+          <button class="btn btn-outline-success" type="submit">
+            <span class="d-flex"><i class="bi bi-search me-1"></i>Cari</span>
+          </button>
+        </form> -->
+      </div>
+    </div>
+    <% } %>
+  </div>
+</nav>

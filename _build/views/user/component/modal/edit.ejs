@@ -1,0 +1,57 @@
+<% surats.forEach(surat => { %>
+  <div
+    class="modal fade"
+    id="edit<%= surat.id %>"
+    tabindex="-1"
+    aria-labelledby="editLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-success" id="editLabel">Edit Surat</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="/surat?_method=put">
+            <div class="form-floating mb-3">
+              <textarea class="form-control" name="about" id="about" placeholder=" " required style="height: 125px; resize: none;"><%= surat.about %></textarea>
+              <label for="about">Perihal</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="no" name="no" placeholder=" " required value="<%= surat.no %>">
+              <label for="no" class="form-label">Nomor Surat</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" id="date" name="date" placeholder=" " required value="<%= surat.date %>">
+              <label for="date" class="form-label">Tanggal Surat</label>
+            </div>
+            <% if (surat.category === "Surat Masuk") { %>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="asal" name="asal" placeholder=" " required value="<%= surat.asal %>">
+                <label for="asal" class="form-label">Asal Surat</label>
+              </div>
+            <% } else { %>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="tujuan" name="tujuan" placeholder=" " required value="<%= surat.tujuan %>">
+                <label for="tujuan" class="form-label">Tujuan Surat</label>
+              </div>
+            <% } %>
+
+              <input type="hidden" name="id" value="<%= surat.id %>">
+          </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Batal</button>
+                  <button type="submit" class="btn btn-success"><i class="bi bi-pen"></i> Edit</button>
+              </div>
+          </form>
+      </div>
+      </div>
+    </div>
+  </div>
+<% }) %>
